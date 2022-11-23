@@ -127,7 +127,12 @@ namespace Launcher.ViewModel
                             SnackBar.Show("请至少添加并选择一个服务器！",null);
                             return;
                         }
-                        var SelectedProxy_C = LauncherConfig.Servers[LauncherConfig.SelectedSrvIndex].proxy;
+                        if (SelectedSrv==null)
+                        {
+                            SnackBar.Show("请选择一个服务器！", null);
+                            return;
+                        }
+                        var SelectedProxy_C = SelectedSrv.proxy;
                         proxyController = new ProxyController(SelectedProxy_C.ProxyPort, SelectedProxy_C.ProxyServer,SelectedProxy_C.UseHttp);
                         proxyController.Start();
 
@@ -139,6 +144,7 @@ namespace Launcher.ViewModel
                             GameHelper.StartGame(fp, dll);
                         }
                         CanChangeProxyType = false;
+                        CanStart = false;
                         StartBtn_txt = "正在运行";
                         new ProcessWatcher(new EventHandler(pro_Exited)).Watch();
 
@@ -187,12 +193,14 @@ namespace Launcher.ViewModel
         {
             //MessageBox.Show("游戏退出！");
 
+
+            CanStart = true;
+
             switch (LauncherConfig.ProxyType)
             {
                 case ProxyType.OFFICIAL:
                     StartBtn_txt = "开始游戏";
 
-                    CanStart = true;
                     CanChangeProxyType = true;
                     break;
                 case ProxyType.PRIVATE:

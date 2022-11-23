@@ -49,7 +49,7 @@ namespace Launcher
             {
                 case 0: rootFrame.Navigate(new Uri("View/Home.xaml", UriKind.Relative)); break;
                 case 1: rootFrame.Navigate(new Uri("View/Setting.xaml", UriKind.Relative)); break;
-                case 2: rootFrame.Navigate(new Uri("View/Home.xaml", UriKind.Relative)); break;
+                case 2: rootFrame.Navigate(new Uri("View/About.xaml", UriKind.Relative)); break;
                 default:
                     break;
             }
