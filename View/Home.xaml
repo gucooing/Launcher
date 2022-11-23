@@ -1,0 +1,267 @@
+﻿<Page
+    x:Class="Launcher.View.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Launcher.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
+    xmlns:viewmodel="clr-namespace:Launcher.ViewModel"
+    Title="Home"
+    d:DataContext="{d:DesignInstance Type=viewmodel:HomeVM}"
+    d:DesignHeight="500"
+    d:DesignWidth="600"
+    mc:Ignorable="d">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <ListBox
+            x:Name="pt"
+            pu:ListBoxHelper.CornerRadius="20"
+            pu:ListBoxHelper.ItemsCornerRadius="20"
+            pu:ListBoxHelper.ItemsHeight="40"
+            pu:ListBoxHelper.ItemsHoverBackground="#a0b8dbf1"
+            pu:ListBoxHelper.ItemsPadding="20 0"
+            pu:ListBoxHelper.ItemsSelectedBackground="#b8dbf1"
+            Background="#f3f6fc"
+            BorderThickness="0"
+            FontWeight="Bold"
+            IsEnabled="{Binding CanChangeProxyType}"
+            SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3" IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBoxItem>
+                <TextBlock HorizontalAlignment="Center" Text="Official" />
+            </ListBoxItem>
+            <ListBoxItem>
+                <TextBlock Text="Private" />
+            </ListBoxItem>
+            <ListBoxItem>
+                <TextBlock Text="Proxy Only" />
+            </ListBoxItem>
+        </ListBox>
+
+        <Grid Grid.Row="1" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="180" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin="0,0,10,0" Panel.ZIndex="2">
+
+                <Border CornerRadius="20">
+                    <Border.Background>
+                        <ImageBrush ImageSource="https://lh3.googleusercontent.com/-3U4GA9CsYQZvdlgoW8DciDLwCgFQaPeo0bE5mP5GWfe0FMKgg5O5pesWpDXGocuTc7qdkkmfC9-cFOWi6Swq5KAtqLpr-k5YI3VsQQGTQnH_O5vUeQ=w2400-rj" Stretch="UniformToFill" />
+                    </Border.Background>
+
+                </Border>
+
+                <TextBlock
+                    Margin="20"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    FontSize="14"
+                    ToolTip="Fake">
+                    <Run Text="Online:" />
+                    <Run Text="30" />
+                    <Run Text="/" />
+                    <Run Text="120" />
+                </TextBlock>
+
+                <StackPanel Margin="20" VerticalAlignment="Bottom">
+                    <StackPanel Margin="4" Orientation="Horizontal">
+
+                        <TextBlock
+                            Margin="0,4"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="#1867c0"
+                            Opacity="0.8"
+                            Text="Srver List:" />
+
+                    </StackPanel>
+                    <Border
+                        Height="120"
+                        Background="#ddE3F2FD"
+                        CornerRadius="15">
+
+
+                        <ListBox
+                            Padding="4"
+                            pu:ListBoxHelper.ItemsCornerRadius="16"
+                            pu:ListBoxHelper.ItemsPadding="8"
+                            pu:ListBoxHelper.ItemsSelectedBackground="#b8dbf1"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            FontSize="14"
+                            ItemsSource="{Binding LauncherConfig.Servers}"
+                            SelectedIndex="{Binding LauncherConfig.SelectedSrvIndex}"
+                            SelectedValue="{Binding SelectedSrv}">
+                            <pu:ListBoxHelper.EmptyContent>
+                                <Grid>
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"
+                                        Text="空" />
+                                </Grid>
+                            </pu:ListBoxHelper.EmptyContent>
+                            <ListBox.ContextMenu>
+                                <ContextMenu
+                                    Padding="0"
+                                    pu:ContextMenuHelper.CornerRadius="20"
+                                    pu:ContextMenuHelper.ItemsHeight="36"
+                                    pu:ContextMenuHelper.ItemsHoverBackground="#b8dbf1"
+                                    pu:ContextMenuHelper.ShadowColor="Gray"
+                                    pu:ShadowHelper.Opacity="0.2"
+                                    Background="#f3f6fc"
+                                    BorderThickness="0"
+                                    FontSize="14">
+                                    <MenuItem Command="{Binding EditCommand}" Header="编辑" />
+                                    <MenuItem Command="{Binding AddCommand}" Header="添加" />
+                                    <MenuItem Command="{Binding DeleteCommand}" Header="删除" />
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto" />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock
+                                            Margin="4,0,4,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="16">
+
+                                            <Run FontFamily="{StaticResource remix}" Text="&#xf0e0;" />
+                                        </TextBlock>
+                                        <TextBlock Grid.Column="1">
+                                            <Run Text="{Binding Name}" />
+                                        </TextBlock>
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+
+                                            <!--<Button
+                                            HorizontalAlignment="Right"
+                                            pu:ButtonHelper.ClickBackground="#30EF5350"
+                                            pu:ButtonHelper.CornerRadius="4"
+                                            Background="Transparent"
+                                            FontFamily="{StaticResource remix}"
+                                            FontSize="18">
+                                            &#xec2a;
+                                        </Button>-->
+                                        </StackPanel>
+
+
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Border>
+                </StackPanel>
+
+            </Grid>
+
+            <Border
+                Grid.ColumnSpan="2"
+                Padding="20"
+                Background="#f8fafd"
+                CornerRadius="20">
+                <Grid Margin="350,0,0,0">
+
+                    <TextBlock TextWrapping="Wrap">
+                        <Run
+                            FontSize="30"
+                            FontWeight="Bold"
+                            Text="{Binding SelectedSrv.Name}" />
+                        <LineBreak />
+                        <Run>
+                            Styles are the visual aspects of a UI that give it a distinct look and feel.
+                        </Run>
+                    </TextBlock>
+
+                    <UniformGrid VerticalAlignment="Bottom" Columns="2">
+                        <StackPanel>
+                            <Button
+                                Width="50"
+                                Height="30"
+                                Margin="4"
+                                pu:ButtonHelper.CornerRadius="15"
+                                Background="#C2E7FF"
+                                Cursor="Hand">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="{StaticResource remix}"
+                                    FontSize="20"
+                                    Text="&#xedca;" />
+                            </Button>
+                            <TextBlock HorizontalAlignment="Center" Text="Github" />
+
+                        </StackPanel>
+                        <StackPanel>
+                            <Button
+                                Width="50"
+                                Height="30"
+                                Margin="4"
+                                pu:ButtonHelper.CornerRadius="15"
+                                Background="#C2E7FF"
+                                Cursor="Hand">
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="{StaticResource remix}"
+                                    FontSize="20"
+                                    Text="&#xec37;" />
+                            </Button>
+                            <TextBlock HorizontalAlignment="Center" Text="Discord" />
+
+                        </StackPanel>
+                    </UniformGrid>
+                </Grid>
+
+            </Border>
+
+        </Grid>
+
+
+
+
+        <Grid Grid.Row="2" Margin="0,10,0,0">
+
+            <Button
+                Width="140"
+                Height="50"
+                HorizontalAlignment="Right"
+                pu:ButtonHelper.CornerRadius="25"
+                pu:ButtonHelper.HoverBackground="#2a73c5"
+                Background="#1867c0"
+                Command="{Binding StartGameCommand}"
+                Cursor="Hand"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="White">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        FontFamily="{StaticResource remix}"
+                        FontSize="20"
+                        Text="&#xf00a;" />
+                    <TextBlock Text="{Binding StartBtn_txt, FallbackValue=开始游戏}" />
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

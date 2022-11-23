@@ -1,0 +1,172 @@
+﻿<UserControl
+    x:Class="Launcher.Control.ServerEditControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Launcher.Control"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
+    Name="root"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    d:Visibility="Visible"
+    Visibility="Collapsed"
+    mc:Ignorable="d">
+    <Grid Background="#aa000000">
+
+        <Border
+            Width="600"
+            MinHeight="200"
+            MaxHeight="400"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="#f3f6fc"
+            CornerRadius="20">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <ScrollViewer>
+
+                    <StackPanel>
+                        <TextBlock
+                            Margin="0,0,0,6"
+                            FontSize="17"
+                            FontWeight="Bold"
+                            Foreground="#294681"
+                            Text="服务器编辑" />
+
+                        <TextBox
+                            xmlns:Model="clr-namespace:Launcher.Model"
+                            Grid.Column="1"
+                            MinWidth="100"
+                            Margin="0,5,5,5"
+                            Padding="8"
+                            pu:TextBoxHelper.CornerRadius="4"
+                            pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
+                            pu:TextBoxHelper.Watermark="名称"
+                            Background="Transparent"
+                            BorderThickness="1"
+                            FontSize="14"
+                            Text="{Binding ElementName=root, Path=ServerItem.Name}" />
+
+                        <Grid Margin="0,0,5,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBox
+                                xmlns:Model="clr-namespace:Launcher.Model"
+                                MinWidth="100"
+                                Margin="0,5,5,5"
+                                Padding="8"
+                                pu:TextBoxHelper.CornerRadius="4"
+                                pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
+                                pu:TextBoxHelper.Watermark="地址: 127.0.0.1:8080"
+                                Background="Transparent"
+                                BorderThickness="1"
+                                FontSize="14"
+                                Text="{Binding ElementName=root, Path=ServerItem.proxy.ProxyServer}" />
+
+                            <CheckBox
+                                Grid.Column="1"
+                                pu:CheckBoxHelper.CheckedGlyphBrush="#1e64d4"
+                                pu:CheckBoxHelper.CornerRadius="4"
+                                pu:CheckBoxHelper.HoverBorderBrush="#1e64d4"
+                                Content="使用http"
+                                FontSize="16"
+                                IsChecked="{Binding ElementName=root, Path=ServerItem.proxy.UseHttp}" />
+                        </Grid>
+                        <!--<TextBox
+                            xmlns:Model="clr-namespace:Launcher.Model"
+                            Grid.Column="1"
+                            MinWidth="100"
+                            Margin="0,5,0,5"
+                            Padding="8"
+                            pu:TextBoxHelper.CornerRadius="4"
+                            pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
+                            pu:TextBoxHelper.Watermark="服务器名称"
+                            Background="Transparent"
+                            BorderThickness="1"
+                            FontSize="14"
+                            Text="{Binding LauncherConfig.GameInfo.GameExePath}" />-->
+
+                        <Expander Background="Transparent" BorderThickness="0">
+                            <Expander.Header>
+                                <TextBlock Text="高级" />
+                            </Expander.Header>
+
+                            <StackPanel>
+                                <TextBox
+                                    xmlns:Model="clr-namespace:Launcher.Model"
+                                    MinWidth="100"
+                                    Margin="0,5,5,5"
+                                    Padding="8"
+                                    pu:TextBoxHelper.CornerRadius="4"
+                                    pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
+                                    pu:TextBoxHelper.Watermark="PublicKey,为空则选择割草机的key"
+                                    AcceptsReturn="True"
+                                    Background="Transparent"
+                                    BorderThickness="1"
+                                    FontSize="14"
+                                    Text="{Binding ElementName=root, Path=ServerItem.RSAPublicKey}" />
+
+                                <TextBox
+                                    xmlns:Model="clr-namespace:Launcher.Model"
+                                    MinWidth="100"
+                                    Margin="0,5,5,5"
+                                    Padding="8"
+                                    pu:TextBoxHelper.CornerRadius="4"
+                                    pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
+                                    pu:TextBoxHelper.Watermark="PrivateKey,为空则禁用"
+                                    AcceptsReturn="True"
+                                    Background="Transparent"
+                                    BorderThickness="1"
+                                    FontSize="14"
+                                    Text="{Binding ElementName=root, Path=ServerItem.RSAPrivateKey}" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <StackPanel
+                    Grid.Row="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+
+                    <Button
+                        Padding="18,12"
+                        pu:ButtonHelper.ClickBackground="#88f8fafd"
+                        pu:ButtonHelper.CornerRadius="8"
+                        pu:ButtonHelper.HoverBackground="#88b8daf0"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Click="Button_Click_1"
+                        Content="确定"
+                        FontFamily="{StaticResource remix}"
+                        FontSize="14"
+                        FontWeight="Bold"
+                        Foreground="#558fd1" />
+                    <Button
+                        Margin="8,0,0,0"
+                        Padding="18,12"
+                        pu:ButtonHelper.ClickBackground="#44f8fafd"
+                        pu:ButtonHelper.CornerRadius="8"
+                        pu:ButtonHelper.HoverBackground="#44b8daf0"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Click="Button_Click"
+                        Content="取消"
+                        FontFamily="{StaticResource remix}"
+                        FontSize="14"
+                        Foreground="#558fd1"
+                        Visibility="Collapsed" />
+                </StackPanel>
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
