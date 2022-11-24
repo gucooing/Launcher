@@ -44,6 +44,7 @@ namespace Launcher.Model
         //public ProxyType ProxyType { get; set; }
         //public ObservableCollection<ServerItem> Servers { get; set; }
 
+        public bool DebugMode { get; set; }
 
 
 

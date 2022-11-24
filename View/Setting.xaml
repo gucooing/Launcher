@@ -76,23 +76,30 @@
 
             </Grid>
 
-            <StackPanel Margin="0,5" Orientation="Horizontal">
-                <StackPanel.Resources>
-                    <m:GameVer x:Key="gv">1</m:GameVer>
-                </StackPanel.Resources>
-                <TextBlock
-                    Margin="0,0,10,0"
-                    VerticalAlignment="Center"
-                    FontSize="14"
-                    Text="游戏版本" />
-                <ComboBox
-                    MinWidth="200"
-                    Padding="8"
-                    pu:ComboBoxHelper.BindToEnum="{StaticResource gv}"
-                    pu:ComboBoxHelper.CornerRadius="4"
-                    FontSize="14"
-                    SelectedValue="{Binding LauncherConfig.GameInfo.Version}" />
-            </StackPanel>
+            <TextBlock
+                Margin="0,0,0,5"
+                FontSize="20"
+                FontWeight="Bold"
+                Foreground="#111d35"
+                Text="Develop" />
+
+            <Grid>
+
+                <CheckBox
+                    VerticalContentAlignment="Center"
+                    pu:CheckBoxHelper.BoxHeight="20"
+                    pu:CheckBoxHelper.BoxWidth="20"
+                    pu:CheckBoxHelper.CheckedGlyphBrush="#558fd1"
+                    pu:CheckBoxHelper.CornerRadius="4"
+                    pu:CheckBoxHelper.HoverBorderBrush="#558fd1"
+                    BorderThickness="2"
+                    Content="启用调试"
+                    Cursor="Hand"
+                    FontSize="16"
+                    IsChecked="{Binding LauncherConfig.DebugMode}" />
+
+            </Grid>
+
         </ItemsControl>
 
     </Grid>

@@ -2,11 +2,11 @@
 
 namespace Launcher.Model
 {
-    public enum GameVer
-    {
-        OSRELWin3_2_0,
-        CNRELWin3_2_0
-    }
+    //public enum GameVer
+    //{
+    //    OSRELWin3_2_0,
+    //    CNRELWin3_2_0
+    //}
 
     public class GameInfo
     {
@@ -36,13 +36,13 @@ namespace Launcher.Model
             return Path.Combine(GameExeFolder, dataDirName);
         }
 
-        public GameVer? Version { get; set; }
+        //public GameVer? Version { get; set; }
 
         public GameInfo(string gameExePath)
         {
             GameExePath = gameExePath;
 
-            Version = null;
+            //Version = null;
             //GameExeFolder = Path.GetDirectoryName(gameExePath);
 
 

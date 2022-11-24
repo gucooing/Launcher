@@ -75,9 +75,9 @@ namespace Launcher.ViewModel
             }
 
             if (LauncherConfig.GameInfo==null||
-                LauncherConfig.GameInfo.GameExePath == null ||
-                LauncherConfig.GameInfo.Version == null
-                )
+                LauncherConfig.GameInfo.GameExePath == null )
+                //LauncherConfig.GameInfo.Version == null
+                
             {
                 SnackBar.Show("请先设置 游戏目录 和 游戏版本！",new RelayCommand(() =>
                 {
@@ -138,7 +138,7 @@ namespace Launcher.ViewModel
 
 
 
-                        var dll = mhypbaseHelper.WriteMhypbaseAllTo(fd, LauncherConfig.GameInfo.Version.ToString(), SelectedSrv); ;
+                        var dll = mhypbaseHelper.WriteMhypbaseAllTo(fd, SelectedSrv); ;
                         if (dll != null)
                         {
                             GameHelper.StartGame(fp, dll);
@@ -157,7 +157,8 @@ namespace Launcher.ViewModel
                             SnackBar.Show("请至少添加并选择一个服务器！", null);
                             return;
                         }
-                        var SelectedProxy_C = LauncherConfig.Servers[LauncherConfig.SelectedSrvIndex].proxy;
+                        var SelectedProxy_C = SelectedSrv.proxy;
+
 
                         if (proxyController!=null&&proxyController._IsRun)
                         {

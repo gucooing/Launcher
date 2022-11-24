@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 
 namespace Launcher.Common
@@ -29,6 +30,7 @@ namespace Launcher.Common
 
     }
 
+    [Obsolete]
     public static class RawFileHelper
     {
         public static byte[] GetKey(string file)
@@ -59,17 +61,17 @@ namespace Launcher.Common
 
     public static class mhypbaseHelper
     {
-        public static string WriteMhypbaseAllTo(string path1, string ClientVersion, Model.ServerItem item)
+        public static string WriteMhypbaseAllTo(string path1, Model.ServerItem item)
         {
             WriteDllTo(path1);
-            WriteInITo(path1, ClientVersion, item);
-
+            WriteInITo(path1, item);
             return Path.Combine(path1, "mhypbase.cr.dll");
         }
 
 
         public static void WriteDllTo(string path1)
         {
+
             try
             {
                 //EmbedFileManager.ExtractFile("mhypbase.mhypbase.cr.dll",file);
@@ -83,7 +85,7 @@ namespace Launcher.Common
 
         }
 
-        public static void WriteInITo(string path1, string ClientVersion, Model.ServerItem item)
+        public static void WriteInITo(string path1, Model.ServerItem item)
         {
             try
             {
@@ -95,7 +97,12 @@ namespace Launcher.Common
                 }
                 EmbedFileManager.ExtractFile("mhypbase.mhypbase.ini", inif);
 
-                IniHelper.INIWrite("Basic", "ClientVersion", ClientVersion, inif);
+                if (App.launcherConfig.DebugMode)
+                {
+                    IniHelper.INIWrite("Basic", "EnableConsole", "true", inif);
+                }
+
+
 
                 if (!string.IsNullOrEmpty(item.RSAPrivateKey))
                 {
