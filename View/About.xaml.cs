@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,11 @@ namespace Launcher.View
         public About()
         {
             InitializeComponent();
+        }
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Process.Start("explorer.exe", "https://github.com/gc-toolkit/Launcher");
         }
     }
 }

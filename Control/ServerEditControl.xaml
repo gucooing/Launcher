@@ -74,6 +74,7 @@
                                 Grid.Column="1"
                                 pu:CheckBoxHelper.CheckedGlyphBrush="#1e64d4"
                                 pu:CheckBoxHelper.CornerRadius="4"
+                                pu:CheckBoxHelper.GlyphThickness="3"
                                 pu:CheckBoxHelper.HoverBorderBrush="#1e64d4"
                                 Content="使用http"
                                 FontSize="16"
