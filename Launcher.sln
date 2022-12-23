@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Launcher", "Launcher.csproj", "{D3AA2F83-0262-4994-928F-497847A6C8EC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InjectorLib", "..\InjectorLib\InjectorLib.vcxproj", "{6858E5BA-50F9-489C-98BB-69A785A6FF31}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InjectorLib", ".\InjectorLib\InjectorLib.vcxproj", "{6858E5BA-50F9-489C-98BB-69A785A6FF31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
