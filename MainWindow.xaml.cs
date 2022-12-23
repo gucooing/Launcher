@@ -1,5 +1,7 @@
 ﻿using Launcher.Model;
 using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -18,12 +20,6 @@ namespace Launcher
             InitializeComponent();
             Instance = this;
 
-
-            if (App.launcherConfig == null)
-            {
-
-                App.launcherConfig = LauncherConfig.Load("config.json");
-            }
         }
 
         protected override void OnSourceInitialized(EventArgs e)

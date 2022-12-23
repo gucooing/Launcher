@@ -11,7 +11,11 @@
                 <ResourceDictionary Source="/Style/NavigationItemContainerStyle.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Panuon.WPF.UI;component/Control.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
+            <DropShadowEffect
+                x:Key="defaultShadow"
+                BlurRadius="10"
+                Opacity="0.2"
+                ShadowDepth="0" />
             <FontFamily x:Key="remix">pack://application:,,,/Launcher;component/Res/#remixicon</FontFamily>
 
 

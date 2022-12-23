@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Launcher.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prop="clr-namespace:Launcher.Properties"
     xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
     xmlns:viewmodel="clr-namespace:Launcher.ViewModel"
     Title="Home"
@@ -29,8 +30,11 @@
             pu:ListBoxHelper.ItemsHoverBackground="#a0b8dbf1"
             pu:ListBoxHelper.ItemsPadding="20 0"
             pu:ListBoxHelper.ItemsSelectedBackground="#b8dbf1"
+            pu:ListBoxHelper.ShadowColor="Gray"
+            pu:ShadowHelper.Opacity="0.2"
             Background="#f3f6fc"
             BorderThickness="0"
+            FontSize="14"
             FontWeight="Bold"
             IsEnabled="{Binding CanChangeProxyType}"
             SelectionChanged="ListBox_SelectionChanged">
@@ -40,13 +44,13 @@
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBoxItem>
-                <TextBlock HorizontalAlignment="Center" Text="Official" />
+                <TextBlock HorizontalAlignment="Center" Text="{x:Static prop:Resources.tab_official}" />
             </ListBoxItem>
             <ListBoxItem>
-                <TextBlock Text="Private" />
+                <TextBlock Text="{x:Static prop:Resources.tab_private}" />
             </ListBoxItem>
             <ListBoxItem>
-                <TextBlock Text="Proxy Only" />
+                <TextBlock Text="{x:Static prop:Resources.tab_proxyonly}" />
             </ListBoxItem>
         </ListBox>
 
@@ -58,17 +62,9 @@
 
             <Grid Margin="0,0,10,0" Panel.ZIndex="2">
 
-                <Border CornerRadius="20">
-                    <!--<Border.Effect>
-                        <BlurEffect Radius="4" />
-                    </Border.Effect>-->
-                    <Border.Background>
-                        <ImageBrush ImageSource="https://i0.hdslb.com/bfs/new_dyn/179b6391c781ccf0854f593ed6c9c6654750534.png@1036w.webp" Stretch="UniformToFill" />
-                    </Border.Background>
-
-                </Border>
+                <Border CornerRadius="20" />
                 <Border
-                    Margin="0 10 20 0"
+                    Margin="0,10,20,0"
                     Padding="4"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
@@ -88,23 +84,9 @@
                     Name="srv_list"
                     Margin="20"
                     VerticalAlignment="Bottom">
-                    <!--<StackPanel Orientation="Horizontal">
-                        <Border Padding="8,4" CornerRadius="10 10 0 0">
-                            <Border.Background>
-                                <SolidColorBrush Color="#ddE3F2FD" />
-                            </Border.Background>
-
-
-                            <ToggleButton
-                                Background="Transparent"
-                                BorderThickness="0"
-                                Content="Server List:" />
-                        </Border>
-
-                    </StackPanel>-->
                     <Border
                         Height="160"
-                        Background="#ddE3F2FD"
+                        Background="#aaE3F2FD"
                         CornerRadius="15 15 15 15">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -117,8 +99,9 @@
                                 VerticalAlignment="Top"
                                 Background="Transparent"
                                 BorderThickness="0"
-                                Content="Server List:"
-                                FontSize="16" />
+                                Content="{x:Static prop:Resources.h_servers}"
+                                FontSize="16"
+                                FontWeight="Bold" />
                             <ListBox
                                 Grid.Row="2"
                                 Padding="4"
@@ -126,6 +109,10 @@
                                 pu:ListBoxHelper.ItemsHoverBackground="#88b8dbf1"
                                 pu:ListBoxHelper.ItemsPadding="8"
                                 pu:ListBoxHelper.ItemsSelectedBackground="#b8dbf1"
+                                pu:ScrollBarHelper.HoverThumbBackground="#b8dbf1"
+                                pu:ScrollBarHelper.ThumbBackground="#aab8dbf1"
+                                pu:ScrollBarHelper.ThumbBorderThickness="2 0 0 4"
+                                pu:ScrollBarHelper.ThumbCornerRadius="4"
                                 Background="Transparent"
                                 BorderThickness="0"
                                 FontSize="14"
@@ -143,6 +130,7 @@
                                 </pu:ListBoxHelper.EmptyContent>
                                 <ListBox.ContextMenu>
                                     <ContextMenu
+                                        MinWidth="240"
                                         Padding="0"
                                         pu:ContextMenuHelper.CornerRadius="20"
                                         pu:ContextMenuHelper.ItemsHeight="36"
@@ -152,9 +140,11 @@
                                         Background="#f3f6fc"
                                         BorderThickness="0"
                                         FontSize="14">
-                                        <MenuItem Command="{Binding EditCommand}" Header="编辑" />
-                                        <MenuItem Command="{Binding AddCommand}" Header="添加" />
-                                        <MenuItem Command="{Binding DeleteCommand}" Header="删除" />
+                                        <MenuItem Command="{Binding EditCommand}" Header="{x:Static prop:Resources.cm_edit}" />
+                                        <MenuItem Command="{Binding AddCommand}" Header="{x:Static prop:Resources.cm_add}" />
+                                        <MenuItem Command="{Binding DeleteCommand}" Header="{x:Static prop:Resources.cm_del}" />
+                                        <MenuItem Command="{Binding ExportCommand}" Header="{x:Static prop:Resources.cm_export}" />
+                                        <MenuItem Command="{Binding ImportCommand}" Header="{x:Static prop:Resources.cm_import}" />
                                     </ContextMenu>
                                 </ListBox.ContextMenu>
                                 <ListBox.ItemTemplate>
@@ -204,61 +194,72 @@
 
             <Border
                 Grid.ColumnSpan="2"
-                Padding="20"
-                Background="#f8fafd"
-                CornerRadius="20">
-                <Grid Margin="350,0,0,0">
+                CornerRadius="20"
+                Effect="{StaticResource defaultShadow}"
+                RenderOptions.BitmapScalingMode="HighQuality">
+                <Border.Background>
+                    <ImageBrush ImageSource="{Binding LauncherConfig.BgUrl}" Stretch="UniformToFill" />
+                </Border.Background>
+                <Border
+                    Margin="350,0,0,0"
+                    Padding="20"
+                    Background="#88E3F2FD"
+                    CornerRadius="0 20 20 0">
 
-                    <TextBlock TextWrapping="Wrap">
-                        <Run
-                            FontSize="30"
-                            FontWeight="Bold"
-                            Text="{Binding SelectedSrv.Name}" />
-                        <LineBreak />
-                        <Run>
-                            Styles are the visual aspects of a UI that give it a distinct look and feel.
-                        </Run>
-                    </TextBlock>
 
-                    <UniformGrid VerticalAlignment="Bottom" Columns="2">
-                        <StackPanel>
-                            <Button
-                                Width="50"
-                                Height="30"
-                                Margin="4"
-                                pu:ButtonHelper.CornerRadius="15"
-                                Background="#C2E7FF"
-                                Cursor="Hand">
-                                <TextBlock
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    FontFamily="{StaticResource remix}"
-                                    FontSize="20"
-                                    Text="&#xedca;" />
-                            </Button>
-                            <TextBlock HorizontalAlignment="Center" Text="Github" />
+                    <Grid>
 
-                        </StackPanel>
-                        <StackPanel>
-                            <Button
-                                Width="50"
-                                Height="30"
-                                Margin="4"
-                                pu:ButtonHelper.CornerRadius="15"
-                                Background="#C2E7FF"
-                                Cursor="Hand">
-                                <TextBlock
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    FontFamily="{StaticResource remix}"
-                                    FontSize="20"
-                                    Text="&#xec37;" />
-                            </Button>
-                            <TextBlock HorizontalAlignment="Center" Text="Discord" />
+                        <TextBlock TextWrapping="Wrap">
+                            <Run
+                                FontSize="30"
+                                FontWeight="Bold"
+                                Text="{Binding SelectedSrv.Name, FallbackValue={x:Static prop:Resources.tip_selectone}}" />
+                            <LineBreak />
+                            <Run>
+                                Styles are the visual aspects of a UI that give it a distinct look and feel.
+                            </Run>
+                        </TextBlock>
 
-                        </StackPanel>
-                    </UniformGrid>
-                </Grid>
+                        <UniformGrid VerticalAlignment="Bottom" Columns="2">
+                            <StackPanel>
+                                <Button
+                                    Width="50"
+                                    Height="30"
+                                    Margin="4"
+                                    pu:ButtonHelper.CornerRadius="15"
+                                    Background="#C2E7FF"
+                                    Cursor="Hand">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource remix}"
+                                        FontSize="20"
+                                        Text="&#xedca;" />
+                                </Button>
+                                <TextBlock HorizontalAlignment="Center" Text="Github" />
+
+                            </StackPanel>
+                            <StackPanel>
+                                <Button
+                                    Width="50"
+                                    Height="30"
+                                    Margin="4"
+                                    pu:ButtonHelper.CornerRadius="15"
+                                    Background="#C2E7FF"
+                                    Cursor="Hand">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource remix}"
+                                        FontSize="20"
+                                        Text="&#xec37;" />
+                                </Button>
+                                <TextBlock HorizontalAlignment="Center" Text="Discord" />
+
+                            </StackPanel>
+                        </UniformGrid>
+                    </Grid>
+                </Border>
 
             </Border>
 
@@ -274,7 +275,10 @@
                 Height="50"
                 HorizontalAlignment="Right"
                 pu:ButtonHelper.CornerRadius="25"
-                pu:ButtonHelper.HoverBackground="#2a73c5"
+                pu:ButtonHelper.HoverBackground="#ee2a73c5"
+                pu:ButtonHelper.HoverShadowColor="#b8dbf1"
+                pu:ButtonHelper.ShadowColor="Gray"
+                pu:ShadowHelper.Opacity="0.4"
                 Background="#1867c0"
                 Command="{Binding StartGameCommand}"
                 Cursor="Hand"
@@ -288,7 +292,7 @@
                         FontFamily="{StaticResource remix}"
                         FontSize="20"
                         Text="&#xf00a;" />
-                    <TextBlock Text="{Binding StartBtn_txt, FallbackValue=开始游戏}" />
+                    <TextBlock Text="{Binding StartBtn_txt, FallbackValue={x:Static prop:Resources.btn_startgame}}" />
                 </StackPanel>
             </Button>
         </Grid>

@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Launcher.Control"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prop="clr-namespace:Launcher.Properties"
     xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
     Name="root"
     d:DesignHeight="450"
@@ -35,7 +36,7 @@
                             FontSize="17"
                             FontWeight="Bold"
                             Foreground="#294681"
-                            Text="服务器编辑" />
+                            Text="{x:Static prop:Resources.h_serveredit}" />
 
                         <TextBox
                             xmlns:Model="clr-namespace:Launcher.Model"
@@ -45,7 +46,7 @@
                             Padding="8"
                             pu:TextBoxHelper.CornerRadius="4"
                             pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
-                            pu:TextBoxHelper.Watermark="名称"
+                            pu:TextBoxHelper.Watermark="{x:Static prop:Resources.tip_srvname}"
                             Background="Transparent"
                             BorderThickness="1"
                             FontSize="14"
@@ -64,7 +65,7 @@
                                 Padding="8"
                                 pu:TextBoxHelper.CornerRadius="4"
                                 pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
-                                pu:TextBoxHelper.Watermark="地址: 127.0.0.1:8080"
+                                pu:TextBoxHelper.Watermark="127.0.0.1:8080"
                                 Background="Transparent"
                                 BorderThickness="1"
                                 FontSize="14"
@@ -76,7 +77,7 @@
                                 pu:CheckBoxHelper.CornerRadius="4"
                                 pu:CheckBoxHelper.GlyphThickness="3"
                                 pu:CheckBoxHelper.HoverBorderBrush="#1e64d4"
-                                Content="使用http"
+                                Content="{x:Static prop:Resources.cb_usehttp}"
                                 FontSize="16"
                                 IsChecked="{Binding ElementName=root, Path=ServerItem.proxy.UseHttp}" />
                         </Grid>
@@ -96,7 +97,7 @@
 
                         <Expander Background="Transparent" BorderThickness="0">
                             <Expander.Header>
-                                <TextBlock Text="高级" />
+                                <TextBlock Text="{x:Static prop:Resources.t_advanced}" />
                             </Expander.Header>
 
                             <StackPanel>
@@ -107,7 +108,7 @@
                                     Padding="8"
                                     pu:TextBoxHelper.CornerRadius="4"
                                     pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
-                                    pu:TextBoxHelper.Watermark="PublicKey,为空则选择割草机的key"
+                                    pu:TextBoxHelper.Watermark="{x:Static prop:Resources.tip_publickey}"
                                     AcceptsReturn="True"
                                     Background="Transparent"
                                     BorderThickness="1"
@@ -121,7 +122,7 @@
                                     Padding="8"
                                     pu:TextBoxHelper.CornerRadius="4"
                                     pu:TextBoxHelper.FocusedBorderBrush="#2a73c5"
-                                    pu:TextBoxHelper.Watermark="PrivateKey,为空则禁用"
+                                    pu:TextBoxHelper.Watermark="{x:Static prop:Resources.tip_privatekey}"
                                     AcceptsReturn="True"
                                     Background="Transparent"
                                     BorderThickness="1"
@@ -145,7 +146,7 @@
                         Background="Transparent"
                         BorderThickness="0"
                         Click="Button_Click_1"
-                        Content="确定"
+                        Content="{x:Static prop:Resources.tb_ok}"
                         FontFamily="{StaticResource remix}"
                         FontSize="14"
                         FontWeight="Bold"

@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Launcher"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prop="clr-namespace:Launcher.Properties"
     xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
     Title="MainWindow"
     Width="800"
@@ -21,7 +22,8 @@
             <ColumnDefinition Width="220" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Grid Background="#f3f6fc">
+        <Grid Background="#f3f6fc" Effect="{StaticResource defaultShadow}">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
                 <RowDefinition />
@@ -50,7 +52,7 @@
                             FontFamily="{StaticResource remix}"
                             FontSize="18"
                             Text="&#xee2b;" />
-                        <TextBlock Text="开始" />
+                        <TextBlock Text="{x:Static prop:Resources.nav_home}" />
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
@@ -61,7 +63,7 @@
                             FontFamily="{StaticResource remix}"
                             FontSize="18"
                             Text="&#xf0ee;" />
-                        <TextBlock Text="设置" />
+                        <TextBlock Text="{x:Static prop:Resources.nav_setting}" />
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
@@ -72,7 +74,7 @@
                             FontFamily="{StaticResource remix}"
                             FontSize="18"
                             Text="&#xee59;" />
-                        <TextBlock Text="关于" />
+                        <TextBlock Text="{x:Static prop:Resources.nav_about}" />
                     </StackPanel>
                 </ListBoxItem>
             </ListBox>

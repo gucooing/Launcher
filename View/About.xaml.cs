@@ -28,7 +28,8 @@ namespace Launcher.View
 
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Process.Start("explorer.exe", "https://github.com/gc-toolkit/Launcher");
+            var tb = sender as TextBlock;
+            Process.Start("explorer.exe", tb.Tag.ToString());
         }
     }
 }
