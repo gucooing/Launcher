@@ -41,8 +41,7 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3
       with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "Lancher"
+          name: Lancher
           prerelease: false
           title: "Release Build"
           files: |
