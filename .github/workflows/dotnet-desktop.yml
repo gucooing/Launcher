@@ -42,6 +42,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
           name: Lancher
+          path: bin/Release/**
           prerelease: false
           title: "Release Build"
           files: |
