@@ -43,6 +43,7 @@ jobs:
       with:
           name: Lancher
           path: bin/Release/**
+          automatic_release_tag: "Lancher"
           prerelease: false
           title: "Release Build"
           files: |
