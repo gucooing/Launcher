@@ -41,6 +41,9 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: Lancher
-        path: bin/Release/**
-        if-no-files-found: error
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "Lancher"
+          prerelease: false
+          title: "Release Build"
+          files: |
+                *.tar
