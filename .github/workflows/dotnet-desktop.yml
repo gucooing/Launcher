@@ -44,7 +44,7 @@ jobs:
           name: Lancher
           path: bin/Release/**
           automatic_release_tag: "Lancher"
-          prerelease: false
+          prerelease: true
           title: "Release Build"
           files: |
                 *.tar
