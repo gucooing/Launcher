@@ -49,12 +49,11 @@ jobs:
     - name: Upload a Build Artifact
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
-          name: Lancher
-          path: bin/x64/Release/**
-          # retention-days: 90
+          # repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "Lancher"
           prerelease: false
+          draft: false
           title: "Release Build"
           files: |
                 *.zip
-                LICENSE 
+                LICENSE  
