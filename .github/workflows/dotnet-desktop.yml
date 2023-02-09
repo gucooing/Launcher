@@ -2,9 +2,9 @@ name: MSBuild
 
 on:
   push:
-    branches: [ "2.9" ]
+    branches: [ "3.3" ]
   pull_request:
-    branches: [ "2.9" ]
+    branches: [ "3.3" ]
 
 env:
   # Path to the solution file relative to the root of the project.
