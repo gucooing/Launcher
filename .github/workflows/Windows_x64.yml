@@ -27,6 +27,8 @@ jobs:
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
+      with:
+        nuget-api-key: ${{ secrets.NuGetAPIKey }}
 
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -43,9 +45,11 @@ jobs:
       with:
           name: Lancher
           path: bin/x64/Release/**
-          retention-days: 90
-          tag_name: "Lancher"
+          # retention-days: 90
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "Lancher"
           prerelease: false
           title: "Release Build"
           files: |
                 *.zip
+                LICENSE 
