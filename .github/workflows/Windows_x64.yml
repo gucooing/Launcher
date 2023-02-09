@@ -43,4 +43,9 @@ jobs:
       with:
           name: Lancher
           path: bin/x64/Release/**
-          retention-days: 365
+          retention-days: 90
+          tag_name: "Lancher"
+          prerelease: false
+          title: "Release Build"
+          files: |
+                *.zip
