@@ -42,5 +42,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
           name: Lancher
-          path: bin/Release/**
-          if-no-files-found: error
+          path: bin/x64/Release/**
+          retention-days: 365
