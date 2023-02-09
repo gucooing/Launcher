@@ -27,6 +27,11 @@ jobs:
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
+      
+    - uses: nuget/setup-nuget@v1
+      with:
+        nuget-api-key: ${{ secrets.NuGetAPIKey }}
+        nuget-version: '5.x'
 
     - name: Restore NuGet packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
@@ -49,7 +54,8 @@ jobs:
     - name: Upload a Build Artifact
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
-          repo_token: "${{ secrets.REPO_TOKEN }}"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          # repo_token: "${{ secrets.REPO_TOKEN }}"
           automatic_release_tag: "Lancher"
           prerelease: false
           draft: false
