@@ -43,8 +43,4 @@ jobs:
       with:
           name: Lancher
           path: bin/Release/**
-          automatic_release_tag: "Lancher"
-          prerelease: true
-          title: "Release Build"
-          files: |
-                *.tar
+          if-no-files-found: error
