@@ -42,9 +42,9 @@ jobs:
       uses: TheDoctor0/zip-release@0.6.2
       with:
         type: 'zip'
-        path: 'Lancher'
+        path: bin/x64/Release/**
         filename: 'Lancher.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig'
+        exclusions: '*.git* /*.xml* /*.config* /*en /* .pdb'
       
     - name: Upload a Build Artifact
       uses: "marvinpinto/action-automatic-releases@latest"
