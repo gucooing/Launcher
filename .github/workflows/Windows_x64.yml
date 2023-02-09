@@ -1,3 +1,4 @@
+
 name: MSBuild
 
 on:
@@ -38,22 +39,14 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
       
-    - name: Archive Release
-      uses: TheDoctor0/zip-release@0.6.2
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3
       with:
-        type: 'zip'
-        path: bin/x64/Release/**
-        filename: 'Lancher.zip'
-        exclusions: '*.git* /*.xml* /*.config* /*en /* .pdb'
-      
-    - name: Upload release asset
-      uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "Lancher"
+          name: Lancher
+          path: bin/x64/Release/**
+          retention-days: 90
+          tag_name: "Lancher"
           prerelease: false
-          draft: false
           title: "Release Build"
           files: |
                 *.zip
-                LICENSE  
