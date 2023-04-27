@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="nav_about" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="nav_home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="nav_setting" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="about_desp" xml:space="preserve">
+    <value>+ Supported versions: 3.1, 3.2, 3.2.50, 3.3, Synchronized with gc toolkit/RSAPatch.</value>
+  </data>
+  <data name="btn_searchgame" xml:space="preserve">
+    <value>Auto Detect</value>
+  </data>
+  <data name="btn_selectgame" xml:space="preserve">
+    <value>Manual</value>
+  </data>
+  <data name="cb_enabledebug" xml:space="preserve">
+    <value>Enable DebugMode</value>
+  </data>
+  <data name="h_about" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="h_develop" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="h_general" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="repo1" xml:space="preserve">
+    <value>[appreciate]:https://github.com/34736384/RSAPatch</value>
+  </data>
+  <data name="repoinfo" xml:space="preserve">
+    <value>[Source Code]:https://github.com/gc-toolkit/Launcher</value>
+  </data>
+  <data name="tab_official" xml:space="preserve">
+    <value>Official Mode</value>
+  </data>
+  <data name="tab_private" xml:space="preserve">
+    <value>Private Mode</value>
+  </data>
+  <data name="tab_proxyonly" xml:space="preserve">
+    <value>Proxy Only</value>
+  </data>
+  <data name="tbtip_bgurl" xml:space="preserve">
+    <value>Background Image</value>
+  </data>
+  <data name="tbtip_gamepath" xml:space="preserve">
+    <value>GamePath</value>
+  </data>
+  <data name="tip_selectone" xml:space="preserve">
+    <value>Select a server</value>
+  </data>
+  <data name="btn_running" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="btn_startgame" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="btn_startproxy" xml:space="preserve">
+    <value>StartProxy</value>
+  </data>
+  <data name="btn_stopproxy" xml:space="preserve">
+    <value>StopProxy</value>
+  </data>
+  <data name="cm_add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="cm_del" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="cm_edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="cm_export" xml:space="preserve">
+    <value>Export to Clipboard</value>
+  </data>
+  <data name="cm_import" xml:space="preserve">
+    <value>Import from clipboard</value>
+  </data>
+  <data name="h_servers" xml:space="preserve">
+    <value>Available servers:</value>
+  </data>
+  <data name="tip_correctgamepath" xml:space="preserve">
+    <value>Please set the correct game path!</value>
+  </data>
+  <data name="tip_exp_succ" xml:space="preserve">
+    <value>Export succeeded!</value>
+  </data>
+  <data name="tip_imp_err" xml:space="preserve">
+    <value>Import failed!</value>
+  </data>
+  <data name="tip_imp_succ" xml:space="preserve">
+    <value>Import succeeded!</value>
+  </data>
+  <data name="tip_nostart" xml:space="preserve">
+    <value>Can't start the game now!</value>
+  </data>
+  <data name="tip_reqaddone" xml:space="preserve">
+    <value>Please add and select at least one server!</value>
+  </data>
+  <data name="tip_reqselectone" xml:space="preserve">
+    <value>Please select a server!</value>
+  </data>
+  <data name="tip_setcfg" xml:space="preserve">
+    <value>Please set the game directory and game version first!</value>
+  </data>
+  <data name="cb_usehttp" xml:space="preserve">
+    <value>Use HTTP</value>
+  </data>
+  <data name="h_serveredit" xml:space="preserve">
+    <value>Server Profile Edit</value>
+  </data>
+  <data name="tip_search_err" xml:space="preserve">
+    <value>Detect failed, there is no relevant information in the registry!</value>
+  </data>
+  <data name="tip_serach_succ" xml:space="preserve">
+    <value>Found game file at {0}!</value>
+  </data>
+  <data name="tip_srvname" xml:space="preserve">
+    <value>Server Name</value>
+  </data>
+  <data name="t_advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="tb_ok" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="tip_privatekey" xml:space="preserve">
+    <value>PrivateKey: If it is empty, it will be disabled.</value>
+  </data>
+  <data name="tip_publickey" xml:space="preserve">
+    <value>PublicKey: If it is empty, it will use grasscutter's ley.</value>
+  </data>
+</root>

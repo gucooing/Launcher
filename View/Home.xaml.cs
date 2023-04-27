@@ -24,15 +24,15 @@ namespace Launcher.View
             switch (ViewModel.HomeVM.Instacne.LauncherConfig.ProxyType)
             {
                 case Model.ProxyType.OFFICIAL:
-                    ViewModel.HomeVM.Instacne.StartBtn_txt = "开始游戏";
+                    ViewModel.HomeVM.Instacne.StartBtn_txt = Properties.Resources.btn_startgame;
                     break;
                 case Model.ProxyType.PRIVATE:
                     
-                    ViewModel.HomeVM.Instacne.StartBtn_txt = "开始游戏";
+                    ViewModel.HomeVM.Instacne.StartBtn_txt = Properties.Resources.btn_startgame;
 
                     break;
                 case Model.ProxyType.PROXY_ONLY:
-                    ViewModel.HomeVM.Instacne.StartBtn_txt = "开启代理";
+                    ViewModel.HomeVM.Instacne.StartBtn_txt = Properties.Resources.btn_startproxy;
 
                     break;
                 default:

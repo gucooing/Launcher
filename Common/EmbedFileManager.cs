@@ -30,7 +30,6 @@ namespace Launcher.Common
 
     }
 
-    [Obsolete]
     public static class RawFileHelper
     {
         public static byte[] GetKey(string file)
@@ -39,7 +38,7 @@ namespace Launcher.Common
             try
             {
                 var _assembly = Assembly.GetExecutingAssembly();//获取当前执行代码的程序集
-                sr = _assembly.GetManifestResourceStream($"Launcher.key.{file}");
+                sr = _assembly.GetManifestResourceStream($"Launcher.RSAPatch.{file}");
 
             }
             catch
@@ -59,59 +58,76 @@ namespace Launcher.Common
         }
     }
 
-    public static class mhypbaseHelper
+    public static class RSAPatchHelper
     {
-        public static string WriteMhypbaseAllTo(string path1, Model.ServerItem item)
+        public static string TempFolder = Path.Combine(System.IO.Path.GetTempPath(),"com.launcher");
+
+        public static string WriteMhypbaseAllTo(Model.ServerItem item)
         {
-            WriteDllTo(path1);
-            WriteInITo(path1, item);
-            return Path.Combine(path1, "mhypbase.cr.dll");
+            if (!Directory.Exists(TempFolder))
+            {
+                Directory.CreateDirectory(TempFolder);
+            }
+            else
+            {
+                var fs = Directory.GetFiles(TempFolder);
+                foreach (var f in fs)
+                {
+                    File.Delete(f);
+                }
+
+            }
+            var r = WriteDllTo(TempFolder);
+            WriteInITo(TempFolder, item);
+            return r;
         }
 
-
-        public static void WriteDllTo(string path1)
+        public static void CleanTemp()
         {
+            Directory.Delete(TempFolder, true);
+        }
 
+        public static string WriteDllTo(string folder)
+        {
+            string target_dll = Path.Combine(folder, "rsa.dll");
             try
             {
-                //EmbedFileManager.ExtractFile("mhypbase.mhypbase.cr.dll",file);
-                EmbedFileManager.ExtractFile("mhypbase.mhypbase.cr.dll", Path.Combine(".\\", "mhypbase.cr.dll"));
+                EmbedFileManager.ExtractFile("RSAPatch.RSAPatch.dll", target_dll);
 
             }
             catch
             {
                 throw;
             }
+            return target_dll;
 
         }
 
-        public static void WriteInITo(string path1, Model.ServerItem item)
+        public static void WriteInITo(string folder, Model.ServerItem item)
         {
             try
             {
-                var inif = Path.Combine(path1, "mhypbase.ini");
-
-                if (File.Exists(inif))
-                {
-                    File.Delete(inif);
-                }
-                EmbedFileManager.ExtractFile("mhypbase.mhypbase.ini", inif);
+                
 
                 if (App.launcherConfig.DebugMode)
                 {
-                    IniHelper.INIWrite("Basic", "EnableConsole", "true", inif);
+                    // debug
                 }
 
 
 
                 if (!string.IsNullOrEmpty(item.RSAPrivateKey))
                 {
-                    IniHelper.INIWrite("Value", "RSAPrivateKey", item.RSAPrivateKey, inif);
-
+                    File.WriteAllText(Path.Combine(folder,"PrivateKey.txt"), item.RSAPrivateKey);
                 }
                 if (!string.IsNullOrEmpty(item.RSAPublicKey))
                 {
-                    IniHelper.INIWrite("Value", "RSAPublicKey", item.RSAPublicKey, inif);
+                    File.WriteAllText(Path.Combine(folder, "PublicKey.txt"), item.RSAPublicKey);
+                }
+                else
+                {
+                    // use default
+                    File.WriteAllBytes(Path.Combine(folder, "PublicKey.txt"), RawFileHelper.GetKey("PublicKey.txt"));
                 }
 
 

@@ -45,6 +45,16 @@ namespace Launcher.Common
             return proxyConfig;
         }
 
+        public static void Set_Proxy(ProxyConfig proxy)
+        {
+            using (RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings", true))
+            {
+                regkey.SetValue("ProxyEnable", proxy.ProxyEnable?1:0);
+                regkey.SetValue("ProxyHttp1.1", 1);
+                regkey.SetValue("ProxyServer", $"{proxy.ProxyServer}");
+            }
+        }
+
         public static void Clear_Proxy()
         {
             using (RegistryKey regkey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Internet Settings", true))
@@ -69,6 +79,8 @@ namespace Launcher.Common
             private string fakeHost;
             private bool usehttp;
 
+            private ProxyConfig OldProxy;
+
             public ProxyController(string port, string host, bool usehttp = false)
             {
                 this.port = port;
@@ -87,7 +99,9 @@ namespace Launcher.Common
 
             public void Start()
             {
-                if (GetCurrentProxy().ProxyEnable)
+                OldProxy = GetCurrentProxy();
+
+                if (OldProxy!=null)
                 {
                     Clear_Proxy();
                 }
@@ -119,8 +133,10 @@ namespace Launcher.Common
                     Console.WriteLine("Listening on '{0}' endpoint at Ip {1} and port: {2} ",
                         endPoint.GetType().Name, endPoint.IpAddress, endPoint.Port);
 
-                proxyServer.SetAsSystemHttpProxy(explicitEndPoint);
-                proxyServer.SetAsSystemHttpsProxy(explicitEndPoint);
+                //proxyServer.SetAsSystemHttpProxy(explicitEndPoint);
+                //proxyServer.SetAsSystemHttpsProxy(explicitEndPoint);
+                Set_Proxy(new ProxyConfig(proxyServer: $"127.0.0.1:{port}", usehttp: usehttp,enable:true));
+
 
             }
 
@@ -142,6 +158,8 @@ namespace Launcher.Common
                     if (proxyServer != null && proxyServer.ProxyRunning)
                     {
                         proxyServer.Stop();
+
+                        Set_Proxy(OldProxy);
 
                     }
                     else

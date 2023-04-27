@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,150 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="about_desp" xml:space="preserve">
+    <value>+ 支持的版本:3.1, 3.2, 3.2.50, 3.3, 与 gc-toolkit/RSAPatch 保持同步。</value>
+  </data>
+  <data name="btn_running" xml:space="preserve">
+    <value>正在运行</value>
+  </data>
+  <data name="btn_searchgame" xml:space="preserve">
+    <value>自动搜索</value>
+  </data>
+  <data name="btn_selectgame" xml:space="preserve">
+    <value>手动选择</value>
+  </data>
+  <data name="btn_startgame" xml:space="preserve">
+    <value>开始游戏</value>
+  </data>
+  <data name="btn_startproxy" xml:space="preserve">
+    <value>开启代理</value>
+  </data>
+  <data name="btn_stopproxy" xml:space="preserve">
+    <value>关闭代理</value>
+  </data>
+  <data name="cb_enabledebug" xml:space="preserve">
+    <value>开启调试</value>
+  </data>
+  <data name="cb_usehttp" xml:space="preserve">
+    <value>使用http</value>
+  </data>
+  <data name="cm_add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="cm_del" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="cm_edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="cm_export" xml:space="preserve">
+    <value>导出到剪贴板</value>
+  </data>
+  <data name="cm_import" xml:space="preserve">
+    <value>从剪贴板导入</value>
+  </data>
+  <data name="h_about" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="h_develop" xml:space="preserve">
+    <value>开发</value>
+  </data>
+  <data name="h_general" xml:space="preserve">
+    <value>常规</value>
+  </data>
+  <data name="h_serveredit" xml:space="preserve">
+    <value>服务器编辑</value>
+  </data>
+  <data name="h_servers" xml:space="preserve">
+    <value>可用服务器：</value>
+  </data>
+  <data name="nav_about" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="nav_home" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="nav_setting" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="repo1" xml:space="preserve">
+    <value>[感谢]:https://github.com/34736384/RSAPatch</value>
+  </data>
+  <data name="repoinfo" xml:space="preserve">
+    <value>[开源地址]:https://github.com/gc-toolkit/Launcher</value>
+  </data>
+  <data name="tab_official" xml:space="preserve">
+    <value>官方</value>
+  </data>
+  <data name="tab_private" xml:space="preserve">
+    <value>私有</value>
+  </data>
+  <data name="tab_proxyonly" xml:space="preserve">
+    <value>仅代理</value>
+  </data>
+  <data name="tbtip_bgurl" xml:space="preserve">
+    <value>背景图片</value>
+  </data>
+  <data name="tbtip_gamepath" xml:space="preserve">
+    <value>游戏路径</value>
+  </data>
+  <data name="tb_ok" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="tip_alreadyrunning" xml:space="preserve">
+    <value>已经有一个启动器在运行</value>
+  </data>
+  <data name="tip_correctgamepath" xml:space="preserve">
+    <value>请设置正确的游戏路径！</value>
+  </data>
+  <data name="tip_crash_title" xml:space="preserve">
+    <value>崩溃了</value>
+  </data>
+  <data name="tip_exp_succ" xml:space="preserve">
+    <value>导出成功！</value>
+  </data>
+  <data name="tip_imp_err" xml:space="preserve">
+    <value>导入失败！</value>
+  </data>
+  <data name="tip_imp_succ" xml:space="preserve">
+    <value>导入成功！</value>
+  </data>
+  <data name="tip_nostart" xml:space="preserve">
+    <value>现在不能开始游戏！</value>
+  </data>
+  <data name="tip_privatekey" xml:space="preserve">
+    <value>PrivateKey,为空则禁用</value>
+  </data>
+  <data name="tip_publickey" xml:space="preserve">
+    <value>PublicKey,为空则选择割草机的key</value>
+  </data>
+  <data name="tip_reqaddone" xml:space="preserve">
+    <value>请至少添加并选择一个服务器！</value>
+  </data>
+  <data name="tip_reqselectone" xml:space="preserve">
+    <value>请选择一个服务器！</value>
+  </data>
+  <data name="tip_search_err" xml:space="preserve">
+    <value>搜索失败，注册表中没有相关信息！</value>
+  </data>
+  <data name="tip_selectone" xml:space="preserve">
+    <value>选择一个服务器</value>
+  </data>
+  <data name="tip_serach_succ" xml:space="preserve">
+    <value>已找到位于{0}的游戏文件!</value>
+  </data>
+  <data name="tip_setcfg" xml:space="preserve">
+    <value>请先设置 游戏目录 和 游戏版本！</value>
+  </data>
+  <data name="tip_srvname" xml:space="preserve">
+    <value>服务器名称</value>
+  </data>
+  <data name="t_advanced" xml:space="preserve">
+    <value>高级</value>
+  </data>
 </root>

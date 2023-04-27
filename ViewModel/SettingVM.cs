@@ -40,11 +40,11 @@ namespace Launcher.ViewModel
             LauncherConfig.GameInfo = new GameInfo(GameHelper.GameRegReader.GetGameExePath());
             if (File.Exists(LauncherConfig.GameInfo.GameExePath))
             {
-                MessageBox.Show($"已找到位于{LauncherConfig.GameInfo.GameExePath}的游戏文件!");
+                MessageBox.Show(string.Format(Properties.Resources.tip_serach_succ,LauncherConfig.GameInfo.GameExeFolder));
             }
             else
             {
-                MessageBox.Show($"搜索失败，注册表中没有相关信息!");
+                MessageBox.Show(Properties.Resources.tip_search_err);
 
             }
 

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="zh-CN" target-language="en" original="LAUNCHER/PROPERTIES/RESOURCES.RESX" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="1.0.0.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="LAUNCHER/PROPERTIES/RESOURCES.RESX" datatype="resx">
+        <trans-unit id="nav_about" translate="yes" xml:space="preserve">
+          <source>关于</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">About</target>
+        </trans-unit>
+        <trans-unit id="nav_home" translate="yes" xml:space="preserve">
+          <source>主页</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Home</target>
+        </trans-unit>
+        <trans-unit id="nav_setting" translate="yes" xml:space="preserve">
+          <source>设置</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Settings</target>
+        </trans-unit>
+        <trans-unit id="about_desp" translate="yes" xml:space="preserve">
+          <source>+ 支持的版本:3.1, 3.2, 3.2.50, 3.3, 与 gc-toolkit/RSAPatch 保持同步。</source>
+          <target state="translated">+ Supported versions: 3.1, 3.2, 3.2.50, 3.3, Synchronized with gc toolkit/RSAPatch.</target>
+        </trans-unit>
+        <trans-unit id="btn_searchgame" translate="yes" xml:space="preserve">
+          <source>自动搜索</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Auto Detect</target>
+        </trans-unit>
+        <trans-unit id="btn_selectgame" translate="yes" xml:space="preserve">
+          <source>手动选择</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Manual</target>
+        </trans-unit>
+        <trans-unit id="cb_enabledebug" translate="yes" xml:space="preserve">
+          <source>开启调试</source>
+          <target state="translated">Enable DebugMode</target>
+        </trans-unit>
+        <trans-unit id="h_about" translate="yes" xml:space="preserve">
+          <source>关于</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">About</target>
+        </trans-unit>
+        <trans-unit id="h_develop" translate="yes" xml:space="preserve">
+          <source>开发</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Development</target>
+        </trans-unit>
+        <trans-unit id="h_general" translate="yes" xml:space="preserve">
+          <source>常规</source>
+          <target state="translated">General</target>
+        </trans-unit>
+        <trans-unit id="repo1" translate="yes" xml:space="preserve">
+          <source>[感谢]:https://github.com/34736384/RSAPatch</source>
+          <target state="translated">[appreciate]:https://github.com/34736384/RSAPatch</target>
+        </trans-unit>
+        <trans-unit id="repoinfo" translate="yes" xml:space="preserve">
+          <source>[开源地址]:https://github.com/gc-toolkit/Launcher</source>
+          <target state="translated">[Source Code]:https://github.com/gc-toolkit/Launcher</target>
+        </trans-unit>
+        <trans-unit id="tab_official" translate="yes" xml:space="preserve">
+          <source>官方</source>
+          <target state="translated">Official Mode</target>
+        </trans-unit>
+        <trans-unit id="tab_private" translate="yes" xml:space="preserve">
+          <source>私有</source>
+          <target state="translated">Private Mode</target>
+        </trans-unit>
+        <trans-unit id="tab_proxyonly" translate="yes" xml:space="preserve">
+          <source>仅代理</source>
+          <target state="translated">Proxy Only</target>
+        </trans-unit>
+        <trans-unit id="tbtip_bgurl" translate="yes" xml:space="preserve">
+          <source>背景图片</source>
+          <target state="translated">Background Image</target>
+        </trans-unit>
+        <trans-unit id="tbtip_gamepath" translate="yes" xml:space="preserve">
+          <source>游戏路径</source>
+          <target state="translated">GamePath</target>
+        </trans-unit>
+        <trans-unit id="tip_selectone" translate="yes" xml:space="preserve">
+          <source>选择一个服务器</source>
+          <target state="translated">Select a server</target>
+        </trans-unit>
+        <trans-unit id="btn_running" translate="yes" xml:space="preserve">
+          <source>正在运行</source>
+          <target state="translated">Running</target>
+        </trans-unit>
+        <trans-unit id="btn_startgame" translate="yes" xml:space="preserve">
+          <source>开始游戏</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Play</target>
+        </trans-unit>
+        <trans-unit id="btn_startproxy" translate="yes" xml:space="preserve">
+          <source>开启代理</source>
+          <target state="translated">StartProxy</target>
+        </trans-unit>
+        <trans-unit id="btn_stopproxy" translate="yes" xml:space="preserve">
+          <source>关闭代理</source>
+          <target state="translated">StopProxy</target>
+        </trans-unit>
+        <trans-unit id="cm_add" translate="yes" xml:space="preserve">
+          <source>添加</source>
+          <target state="translated">Add</target>
+        </trans-unit>
+        <trans-unit id="cm_del" translate="yes" xml:space="preserve">
+          <source>删除</source>
+          <target state="translated">Delete</target>
+        </trans-unit>
+        <trans-unit id="cm_edit" translate="yes" xml:space="preserve">
+          <source>编辑</source>
+          <target state="translated">Edit</target>
+        </trans-unit>
+        <trans-unit id="cm_export" translate="yes" xml:space="preserve">
+          <source>导出到剪贴板</source>
+          <target state="translated">Export to Clipboard</target>
+        </trans-unit>
+        <trans-unit id="cm_import" translate="yes" xml:space="preserve">
+          <source>从剪贴板导入</source>
+          <target state="translated">Import from clipboard</target>
+        </trans-unit>
+        <trans-unit id="h_servers" translate="yes" xml:space="preserve">
+          <source>可用服务器：</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Available servers:</target>
+        </trans-unit>
+        <trans-unit id="tip_correctgamepath" translate="yes" xml:space="preserve">
+          <source>请设置正确的游戏路径！</source>
+          <target state="translated">Please set the correct game path!</target>
+        </trans-unit>
+        <trans-unit id="tip_exp_succ" translate="yes" xml:space="preserve">
+          <source>导出成功！</source>
+          <target state="translated">Export succeeded!</target>
+        </trans-unit>
+        <trans-unit id="tip_imp_err" translate="yes" xml:space="preserve">
+          <source>导入失败！</source>
+          <target state="translated">Import failed!</target>
+        </trans-unit>
+        <trans-unit id="tip_imp_succ" translate="yes" xml:space="preserve">
+          <source>导入成功！</source>
+          <target state="translated">Import succeeded!</target>
+        </trans-unit>
+        <trans-unit id="tip_nostart" translate="yes" xml:space="preserve">
+          <source>现在不能开始游戏！</source>
+          <target state="translated">Can't start the game now!</target>
+        </trans-unit>
+        <trans-unit id="tip_reqaddone" translate="yes" xml:space="preserve">
+          <source>请至少添加并选择一个服务器！</source>
+          <target state="translated">Please add and select at least one server!</target>
+        </trans-unit>
+        <trans-unit id="tip_reqselectone" translate="yes" xml:space="preserve">
+          <source>请选择一个服务器！</source>
+          <target state="translated">Please select a server!</target>
+        </trans-unit>
+        <trans-unit id="tip_setcfg" translate="yes" xml:space="preserve">
+          <source>请先设置 游戏目录 和 游戏版本！</source>
+          <target state="translated">Please set the game directory and game version first!</target>
+        </trans-unit>
+        <trans-unit id="cb_usehttp" translate="yes" xml:space="preserve">
+          <source>使用http</source>
+          <target state="translated">Use HTTP</target>
+        </trans-unit>
+        <trans-unit id="h_serveredit" translate="yes" xml:space="preserve">
+          <source>服务器编辑</source>
+          <target state="translated">Server Profile Edit</target>
+        </trans-unit>
+        <trans-unit id="tip_search_err" translate="yes" xml:space="preserve">
+          <source>搜索失败，注册表中没有相关信息！</source>
+          <target state="translated">Detect failed, there is no relevant information in the registry!</target>
+        </trans-unit>
+        <trans-unit id="tip_serach_succ" translate="yes" xml:space="preserve">
+          <source>已找到位于{0}的游戏文件!</source>
+          <target state="needs-review-translation">Found game file at {0}!</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+        </trans-unit>
+        <trans-unit id="tip_srvname" translate="yes" xml:space="preserve">
+          <source>服务器名称</source>
+          <target state="translated">Server Name</target>
+        </trans-unit>
+        <trans-unit id="t_advanced" translate="yes" xml:space="preserve">
+          <source>高级</source>
+          <target state="translated">Advanced</target>
+        </trans-unit>
+        <trans-unit id="tb_ok" translate="yes" xml:space="preserve">
+          <source>确定</source>
+          <target state="translated">Apply</target>
+        </trans-unit>
+        <trans-unit id="tip_privatekey" translate="yes" xml:space="preserve">
+          <source>PrivateKey,为空则禁用</source>
+          <target state="translated">PrivateKey: If it is empty, it will be disabled.</target>
+        </trans-unit>
+        <trans-unit id="tip_publickey" translate="yes" xml:space="preserve">
+          <source>PublicKey,为空则选择割草机的key</source>
+          <target state="translated">PublicKey: If it is empty, it will use grasscutter's ley.</target>
+        </trans-unit>
+        <trans-unit id="tip_alreadyrunning" translate="yes" xml:space="preserve">
+          <source>已经有一个启动器在运行</source>
+          <target state="new">An instance is already running</target>
+        </trans-unit>
+        <trans-unit id="tip_crash_title" translate="yes" xml:space="preserve">
+          <source>崩溃了</source>
+          <target state="new">Crashed</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
