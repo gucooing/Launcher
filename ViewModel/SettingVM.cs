@@ -53,7 +53,7 @@ namespace Launcher.ViewModel
         private void SetGameExePath()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "原神游戏程序（YuanShen.exe)|YuanShen.exe|原神游戏程序(GenshinImpact.exe)|GenshinImpact.exe";
+            openFileDialog.Filter = "原神游戏程序（YuanShen.exe)|YuanShen.exe|原神游戏程序(GenshinImpact.exe)|GenshinImpact.exe|崩坏星穹铁道游戏程序(StarRail.exe)|StarRail.exe";
             openFileDialog.Multiselect = false;
             if (openFileDialog.ShowDialog() == true)
             {
